@@ -1,7 +1,7 @@
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { Titre } from "./Titre";
 
-export function Bouton({ action, contenu, largeur, hauteur, taillePolice }) {
+export function Bouton({navigation, contenu, largeur, hauteur, taillePolice, action }) {
   const s = StyleSheet.create({
     insideText: {
       fontSize: taillePolice,

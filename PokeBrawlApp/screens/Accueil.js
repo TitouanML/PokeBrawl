@@ -3,7 +3,9 @@ import { Titre } from "../components/Titre";
 import { Header } from "../components/Header";
 import { Bouton } from "../components/Bouton";
 import { HandleStatsHome } from "../components/HandleStatsHome";
-import {useState} from 'react';
+import { HandleNavFromHome } from "../components/HandleNavFromHome";
+import {useState, useEffect} from 'react';
+import { UserContext } from "../App";
 
 const s = StyleSheet.create({
     text : {
@@ -27,12 +29,14 @@ const s = StyleSheet.create({
 
 
 export default function Accueil({ navigation }) {
+
   const [profileName,setProfileName] = useState(null);
   const [level,setLevel] = useState(null);
   const [hp,setHp] = useState(null);
   const [dps,setDps] = useState(null);
   const [killCounter,setKillCounter] = useState(null);
   const [deathCounter, setDeathCounter] = useState(null);
+  const [xp,setXp] = useState(null);
 
   return (
     <>
@@ -40,12 +44,7 @@ export default function Accueil({ navigation }) {
       <View style = {s.containerTopHome}>
         <Titre contenu={"Bienvenue sur PokeBrawl"} taille={20} />
         <Text style = {s.text}>L’appli qui permet aux dresseurs de se défouler sur les pokemons</Text>
-        <Bouton
-          action={() => navigation.navigate("Combat")}
-          largeur={"50%"}
-          hauteur={50}
-          contenu={"Combattre"}
-        />
+        <HandleNavFromHome navigation = {navigation} profileName={profileName}/>
       </View>
       
       <HandleStatsHome/>
