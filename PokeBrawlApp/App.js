@@ -1,20 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import PokemonClassic from "./assets/images/font/PokemonClassic.ttf";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import {useFonts} from 'expo-font';
+import { Titre } from './components/Titre';
+import { Header } from './components/Header';
+
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+  const fontName = "PokemonClassic";
+  const [isFontLoaded] = useFonts({
+    fontName : PokemonClassic
+  });
+
+  return (<>
+  
+      {isFontLoaded ? <Titre contenu={"Test"} couleur={"black"} taille={20} /> : null}
+  </> );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
