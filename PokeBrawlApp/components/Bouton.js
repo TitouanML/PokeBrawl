@@ -19,7 +19,7 @@ export function Bouton({navigation, contenu, largeur, hauteur, taillePolice, act
   });
   return (
     <TouchableOpacity onPress={action} style={s.bouton}>
-      <Titre couleur={"white"} taille={25} contenu={contenu} />
+      <Titre couleur={"white"} taille={taillePolice} contenu={contenu} />
     </TouchableOpacity>
   );
 }

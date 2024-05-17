@@ -1,8 +1,9 @@
-
+import profileName from '../App';
 import { Bouton } from "./Bouton";
 
 
 export function HandleNavFromHome({navigation, profileName}){
+    console.log(profileName);
     if(profileName === null){
         return(
         <Bouton
@@ -10,6 +11,7 @@ export function HandleNavFromHome({navigation, profileName}){
           largeur={"50%"}
           hauteur={50}
           contenu={"Nouveau profil"}
+          taillePolice={20}
         />
     )
     }else{
@@ -19,6 +21,7 @@ export function HandleNavFromHome({navigation, profileName}){
               largeur={"50%"}
               hauteur={50}
               contenu={"Combattre"}
+              taillePolice={20}
             />
         )
     }
