@@ -1,22 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import PokemonClassic from "./assets/images/font/PokemonClassic.ttf";
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {useFonts} from 'expo-font';
-import { Titre } from './components/Titre';
-import { Header } from './components/Header';
-
+import Accueil from "./screens/Accueil";
+import CombatScreen from "./screens/CombatScreen";
+import { Header } from "./components/Header";
 
 export default function App() {
 
-  const fontName = "PokemonClassic";
   const [isFontLoaded] = useFonts({
-    fontName : PokemonClassic
+    "PokemonClassic" : PokemonClassic
   });
 
-  return (<>
+  const Stack = createNativeStackNavigator();
   
-      {isFontLoaded ? <Titre contenu={"Test"} couleur={"black"} taille={20} /> : null}
-  </> );
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen options = {{headerShown:false}} name="Accueil" component={Accueil}/>
+        <Stack.Screen options = {{headerTintColor:"white", headerStyle:{backgroundColor : "#FF6262"}, headerShown:false, headerTitle: () => <Header trigger={true}/>}} name="Combat" component={CombatScreen}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
