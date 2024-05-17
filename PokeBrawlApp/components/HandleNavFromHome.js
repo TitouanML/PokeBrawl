@@ -12,5 +12,14 @@ export function HandleNavFromHome({navigation, profileName}){
           contenu={"Nouveau profil"}
         />
     )
+    }else{
+        return(
+            <Bouton
+              action = {()=>navigation.navigate("Combat")}
+              largeur={"50%"}
+              hauteur={50}
+              contenu={"Combattre"}
+            />
+        )
     }
 }
